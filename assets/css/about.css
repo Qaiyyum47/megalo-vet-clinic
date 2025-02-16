@@ -82,7 +82,7 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
 
 .text-content h2,
 .text-content p {
-    text-align: left !important;
+    text-align: justify !important;
     margin-left: -200px;
     word-spacing: 5px;
 }
