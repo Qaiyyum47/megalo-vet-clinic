@@ -24,3 +24,44 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     border-top: 1px solid;
 }
 
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    max-width: 500px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 5/4;
+    object-fit: cover;
+    transition: color 0.1s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.about-image img:hover {
+    transform: translateY(-10px);
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 50%;
+}
