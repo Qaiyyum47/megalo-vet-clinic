@@ -17,12 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 data.articles.forEach(article => {
                     let section = document.createElement("section");
 
+                    // Check if imageLink is null or empty, then set a default image
+                    let imageSrc = article.imageLink && article.imageLink.trim() !== "" 
+                        ? article.imageLink 
+                        : '../assets/img/default.jpg';
+
                     // Alternate between "peach" and "white"
                     section.classList.add("content", articleIndex % 2 === 0 ? "peach" : "white");
                     section.innerHTML = `
-                        <h1>${article.title}</h1>
-                        <img src="${article.imageLink}" alt="Article Image" style="max-width:100%; height:auto;">
-                        <p>${article.content}</p>
+                        <div class="article">
+                            <img src="${imageSrc}" alt="Article Image">
+                            <div class="article-content">
+                                <h1>${article.title}</h1>
+                                <p>${article.content}</p>
+                            </div>
+                        </div>
                     `;
                     blogContainer.appendChild(section);
                     
@@ -30,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 page++;
+            } else {
+                hasMore = false; // No more articles to load
             }
-
-            hasMore = data.hasMore;
         } catch (error) {
             console.error("Error fetching articles:", error);
         } finally {

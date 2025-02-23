@@ -1,26 +1,75 @@
-/* 
-Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS! 
-- Titles mostly use `h2` ).
-- Subheading pakai 'h3' (oh, and it's yellow-colored: `#eda325`)
-- Bigger titles? Use `h1` or `h2`.
-- For regular text, just stick to `p`.
-- Links (`<a>`) have hover effects with a little animation.
-- Most of the alignment is handled using `flexbox`, so belajar elok2 that thing
-- Section background colors(e.g class=content red)? Use `.red`, `.peach`, and `.white` classes.
-- **IMPORTANT:** Jangan kacau global.css styles. Apa-apa, message Yum dulu takut kacau code orang lain.
-- **Stick to your assigned page!** Jangan edit page lain, nanti merge conflicts/clash (basically kena 
-    check code satu2 mana yg clash astu kena delete mana yang tanak). 
-*/
-
-#landing-section {
-    width: 100vw;
-    min-height: 45vh;
+.articles-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
-    text-align: left; 
-    padding: 50px;
-    border-bottom: 1px solid;
-    border-top: 1px solid;
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px; /* Increased max-width to better utilize space */
+    margin: 0 auto;
+    padding: 0 40px; /* Increased padding for better spacing */
 }
 
+.article {
+    display: flex;
+    align-items: center; /* Center-align for better balance */
+    gap: 30px; /* Increased spacing for better readability */
+    width: 100%;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.article img {
+    flex-shrink: 0; /* Prevents shrinking */
+    width: 40%; /* Image takes 40% of space */
+    max-width: 500px; /* Prevents it from becoming too large */
+    height: auto;
+    aspect-ratio: 1 / 1; /* Ensures the image is always square (1:1 ratio) */
+    object-fit: cover; /* Crops image instead of stretching */
+    border-radius: 10px;
+}
+
+.article-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 60%; /* Text now takes 60% for better proportion */
+    text-align: left;
+}
+
+.article-content h1 {
+    margin: 0;
+    font-size: 2.2rem; /* Slightly increased title size */
+}
+
+.article-content p {
+    margin-top: 10px;
+    font-size: 1.2rem; /* Increased text size slightly */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* 🔹 Mobile View: Stack Image Above Text */
+@media (max-width: 768px) {
+    .article {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .article img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .article-content {
+        width: 100%;
+    }
+
+    .article-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .article-content p {
+        font-size: 1rem;
+    }
+}
