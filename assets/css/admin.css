@@ -1,0 +1,91 @@
+/* 
+Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS! 
+- Titles mostly use `h2` ).
+- Subheading pakai 'h3' (oh, and it's yellow-colored: `#eda325`)
+- Bigger titles? Use `h1` or `h2`.
+- For regular text, just stick to `p`.
+- Links (`<a>`) have hover effects with a little animation.
+- Most of the alignment is handled using `flexbox`, so belajar elok2 that thing
+- Section background colors(e.g class=content red)? Use `.red`, `.peach`, and `.white` classes.
+- **IMPORTANT:** Jangan kacau global.css styles. Apa-apa, message Yum dulu takut kacau code orang lain.
+- **Stick to your assigned page!** Jangan edit page lain, nanti merge conflicts/clash (basically kena 
+    check code satu2 mana yg clash astu kena delete mana yang tanak). 
+*/
+
+#landing-section {
+    width: 100vw;
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    text-align: left; 
+    padding: 50px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+
+#article-section {
+    
+}
+
+/* Style for form layout */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em; /* Space between form groups */
+    width: 90vw;
+    padding: 30px;
+    height: 90vw;
+}
+
+/* Style for each label-input pair */
+.form-group {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Label styling */
+label {
+    flex: 1;
+    text-align: left; /* Aligns label text to the left */
+    padding-right: 1em;
+    font-weight: bold;
+}
+
+/* Input & textarea styling */
+input, textarea {
+    flex: 2;
+    width: 100%;
+}
+
+/* Increase the width and height of input fields */
+input, textarea {
+    flex: 2; /* Ensures inputs take up more space */
+    width: 100%; /* Makes inputs fill the available space */
+    padding: 10px; /* Adds spacing inside inputs */
+ 
+}
+
+/* Adjust textarea height */
+textarea {
+    height: 250px; /* Increases height of textarea */
+    resize: vertical; /* Allows users to resize */
+}
+
+.btn-group {
+    display: flex; /* Puts buttons side by side */
+    gap: 1em; /* Adds spacing between buttons */
+    justify-content: center; /* Centers buttons */
+    margin-top: 1em; /* Adds spacing above */
+}
+
+/* Adjust button size */
+.btn {
+    height: 5vw;
+    padding: 0em 2em; /* Adjusts padding for better button size */
+    font-size: 1em; /* Ensures readable text */
+    border: none;
+    cursor: pointer;
+}
