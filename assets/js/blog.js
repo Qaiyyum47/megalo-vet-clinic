@@ -22,6 +22,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         ? article.imageLink 
                         : '../assets/img/default.jpg';
 
+                    // Format the published date
+                    let datePublished = article.formattedDate 
+                        ? new Date(article.formattedDate).toLocaleString('en-US', {
+                            weekday: 'short',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true
+                        })
+                        : "Unknown Date"; // Handle missing date
+
                     // Alternate between "peach" and "white"
                     section.classList.add("content", articleIndex % 2 === 0 ? "peach" : "white");
                     section.innerHTML = `
@@ -29,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <img src="${imageSrc}" alt="Article Image">
                             <div class="article-content">
                                 <h1>${article.title}</h1>
+                                <p class="article-date">📅 ${datePublished}</p>
                                 <p>${article.content}</p>
                             </div>
                         </div>

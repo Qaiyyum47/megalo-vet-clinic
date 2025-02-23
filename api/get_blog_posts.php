@@ -17,7 +17,8 @@ $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $limit = 10; // Number of articles per request
 $offset = ($page - 1) * $limit; // Offset calculation
 
-$sql = "SELECT title, content, imageLink FROM Article ORDER BY id DESC LIMIT $limit OFFSET $offset";
+// Include `publishedDateTime` in the query
+$sql = "SELECT title, content, imageLink, DATE_FORMAT(publishedDateTime, '%Y-%m-%d %H:%i:%s') AS formattedDate FROM Article ORDER BY id DESC LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
 
 $articles = [];

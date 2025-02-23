@@ -210,7 +210,7 @@ async function fetchGoogleSheetData() {
             const timestamp = entry.timestamp;
             const username = entry.username;
 
-            const match = imageUrl.match(/id=([\w-]+)/);
+            const match = icmageUrl.match(/id=([\w-]+)/);
             if (match) {
                 imageUrl = `https://drive.google.com/thumbnail?id=${match[1]}`;
             }

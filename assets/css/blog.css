@@ -1,51 +1,107 @@
+#landing-section {
+    width: 100vw;
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    text-align: left; 
+    padding: 50px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+
+#landing-section h3 {
+    font-weight: 700; /* Makes h3 bold */
+    font-family: 'InstrumentSans-Bold', sans-serif; /* Ensures it uses the bold font */
+}
+
 .articles-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    max-width: 1400px; /* Increased max-width to better utilize space */
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px; /* Increased padding for better spacing */
+    padding: 0 40px;
+    padding: 0px;
+}
+
+.article-date {
+    font-size: 0.8rem;  /* Smaller text */
+    font-weight: 700;   /* Bold */
+    color: #555;        /* Optional: Darken the text slightly */
+    font-style: italic;
+    display: block;     /* Ensures it appears on a new line */
+    margin-top: 5px;    /* Adds a bit of spacing */
 }
 
 .article {
     display: flex;
-    align-items: center; /* Center-align for better balance */
-    gap: 30px; /* Increased spacing for better readability */
+    align-items: center;
+    gap: 30px;
     width: 100%;
     border-radius: 10px;
     padding: 30px;
 }
 
 .article img {
-    flex-shrink: 0; /* Prevents shrinking */
-    width: 40%; /* Image takes 40% of space */
-    max-width: 500px; /* Prevents it from becoming too large */
+    flex-shrink: 0;
+    width: 40%;
+    max-width: 500px;
     height: auto;
-    aspect-ratio: 1 / 1; /* Ensures the image is always square (1:1 ratio) */
-    object-fit: cover; /* Crops image instead of stretching */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: 10px;
 }
 
-.article-content {
-    flex-grow: 1;
+.article {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 60%; /* Text now takes 60% for better proportion */
-    text-align: left;
+    align-items: flex-start; /* Aligns content to the top */
+    gap: 30px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 30px;
 }
 
 .article-content h1 {
     margin: 0;
-    font-size: 2.2rem; /* Slightly increased title size */
+    font-size: 4rem;
+    font-weight: 700; /* Ensures headings use bold */
+    text-align: left;
 }
 
 .article-content p {
     margin-top: 10px;
-    font-size: 1.2rem; /* Increased text size slightly */
-    line-height: 1.6; /* Improved readability */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 400; /* Corrected font-weight to valid regular weight */
+    text-align: justify;
+    font-family: 'InstrumentSans', sans-serif;
+    font-weight: 400; /* Ensures regular weight is applied */
 }
+
+@font-face {
+    font-family: 'InstrumentSans';
+    src: url('../font/InstrumentSans-Regular.ttf') format('truetype');
+    font-weight: 400; /* Regular weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'InstrumentSans-Bold';
+    src: url('../font/InstrumentSans-Bold.ttf') format('truetype'); /* Ensure it's actually bold */
+    font-weight: 700; /* Correct bold weight */
+    font-style: normal;
+}
+
+.content {
+    width: 100vw;
+    min-height: 0;
+    padding: 0px;
+    border-bottom: 0px solid;
+    border-top: 0px solid;
+}
+
 
 /* 🔹 Mobile View: Stack Image Above Text */
 @media (max-width: 768px) {
@@ -53,7 +109,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 20px; /* Adjust padding for smaller screens */
+        padding: 20px;
     }
 
     .article img {
@@ -73,3 +129,5 @@
         font-size: 1rem;
     }
 }
+
+
