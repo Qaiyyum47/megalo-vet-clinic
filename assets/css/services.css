@@ -19,8 +19,95 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     flex-direction: column;
     align-items: flex-start; 
     text-align: left; 
-    padding: 50px;
+    padding: 100px 50px;
     border-bottom: 1px solid;
     border-top: 1px solid;
+}
+
+/* General Styles */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    border-radius: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Ensure alternation works properly */
+main > section.content:not(#landing-section):nth-of-type(even) {
+    flex-direction: row !important;
+}
+
+main > section.content:not(#landing-section):nth-of-type(odd) {
+    flex-direction: row-reverse !important;
+}
+
+/* Alternating Colors */
+.peach {
+    background-color: #fcecdf;
+}
+
+.white {
+    background-color: #ffffff;
+}
+
+/* Text Styling */
+.text-box {
+    flex: 1;
+    max-width: 50%;
+}
+
+.text-box h2 {
+    font-family: 'InstrumentSans', Arial, sans-serif;
+    font-size: 2rem;
+    color: #912933;
+    font-weight: bold;
+}
+
+.text-box p {
+    font-family: 'InstrumentSans', Arial, sans-serif;
+    font-size: 1rem;
+    color: #751e28;
+    line-height: 1.5;
+    margin: 15px 0;
+    text-align: justify;
+}
+
+/* Buttons */
+.btn {
+    background-color: #912933;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    transition: background 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #751e28;
+}
+
+/* Image Styling */
+.image-box {
+    flex: 1;
+    text-align: center;
+}
+
+.image-box img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.image-box img:hover {
+    transform: scale(1.05);
 }
 
