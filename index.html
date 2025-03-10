@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
     <title>Megalo Empire Animal Clinic</title>
 </head>
 <body>
@@ -59,36 +58,48 @@
                         <p id="time-warning" style="color: red; font-size: 0.9rem; display: none;">
                             Only available between 9:30 AM and 5:30 PM
                         </p>
-                        <button type="submit" id="submit-btn" onclick="sendMessage()">Book</button>
+                        <button type="submit" id="submit-btn" onclick="sendMessage()">Book Appointment</button>
                     </div>
                 </div>
             </div> 
         </section>
-        
+
         <!-- Services Section -->
         <section id="services-section" class="content peach">
             <h2>Our Services</h2>
-            <div class="services-container">
-                <div class="service-item">
-                    <img src="assets/img/consultation.png" alt="Consultation" onclick="window.location.href='pages/services.html'">
-                    <h3>Consultation</h3>
+            <div class="services-slider-wrapper">
+                <div class="services-list">
+                    <div class="service-item">
+                        <img src="assets/img/consultation.png" alt="Consultation" onclick="window.location.href='pages/services.html'">
+                        <h3>Consultation</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/vaccine.jpg" alt="Vaccination" onclick="window.location.href='pages/services.html'">
+                        <h3>Vaccination</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/surgery.jpg" alt="Surgery" onclick="window.location.href='pages/services.html'">
+                        <h3>Surgery</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/ultrasound.jpg" alt="Ultrasound" onclick="window.location.href='pages/services.html'">
+                        <h3>Ultrasound</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/emergency.jpg" alt="Emergency Treatment" onclick="window.location.href='pages/services.html'">
+                        <h3>Emergency Treatment</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/consultation.png" alt="Consultation" onclick="window.location.href='pages/services.html'">
+                        <h3>Consultation</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/vaccine.jpg" alt="Vaccination" onclick="window.location.href='pages/services.html'">
+                        <h3>Vaccination</h3>
+                    </div>
                 </div>
-                <div class="service-item">
-                    <img src="assets/img/vaccine.jpg" alt="Vaccination" onclick="window.location.href='pages/services.html'">
-                    <h3>Vaccination</h3>
-                </div>
-                <div class="service-item">
-                    <img src="assets/img/surgery.jpg" alt="Surgery" onclick="window.location.href='pages/services.html'">
-                    <h3>Surgery</h3>
-                </div>
-                <div class="service-item">
-                    <img src="assets/img/ultrasound.jpg" alt="Ultrasound" onclick="window.location.href='pages/services.html'">
-                    <h3>Ultrasound</h3>
-                </div>
-                <div class="service-item">
-                    <img src="assets/img/emergency.jpg" alt="Emergency Treatment" onclick="window.location.href='pages/services.html'">
-                    <h3>Emergency Treatment</h3>
-                </div>
+
+                <div class="pagination"></div>
             </div>
         </section>
 
@@ -104,7 +115,7 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- Updates Section -->
         <section id="updates-section" class="content peach">
             <h2>Latest Updates</h2>
@@ -145,7 +156,7 @@
                             <span class="username">Ling shing xuan</span>
                         </div>
                         <div class="testimonial-content">
-                            <p>"This is the first time I came to this pet hospital.All the staff are very enthusiastic, doctor will also take the initiative and talk to me about my cat's condition,everyday update to."</p>
+                            <p>"This is the first time I came to this pet hospital.All the staff are very enthusiastic, doctor will also take the initiative and talk to me about my cat's condition"</p>
                             <div class="testimonial-rating">★★★★★</div>
                         </div>
                     </div>
@@ -163,7 +174,7 @@
         </section>          
 
         <!-- Google Map Section -->
-        <section id="google-map" class="content">
+        <section id="google-map" class="content peach">
             <div>
                 <h2>Find Us</h2>
                 <p>Our clinic is located at...</p>
@@ -174,7 +185,7 @@
         </section>
         
         <!-- FAQ Section -->
-        <section id="faq-section" class="content peach">
+        <section id="faq-section" class="content white">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-container">
                 <div class="faq-item">
@@ -198,8 +209,8 @@
                     <div class="faq-answer">Core vaccinations include rabies, distemper, and parvovirus for dogs, and rabies, FVRCP for cats. We also offer optional vaccines based on your pet’s needs.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Do you offer pet grooming services? <span class="arrow">&#9660;</span></button>
-                    <div class="faq-answer">Yes, we offer grooming services such as bathing, nail trimming, ear cleaning, and fur trimming for dogs and cats.</div>
+                    <button class="faq-question">What payment methods do you accept? <span class="arrow">&#9660;</span></button>
+                    <div class="faq-answer">We accept cash, credit/debit cards, and online transfers.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What payment methods do you accept? <span class="arrow">&#9660;</span></button>
@@ -211,10 +222,12 @@
 
     <!-- Footer -->
     <footer id="main-footer"> 
-
     </footer>
+
     <p id="cpr">&copy; 2025 All rights reserved.</p>
+
     <script src="assets/js/main.js"></script>
+    
 </body>
 </html>
 

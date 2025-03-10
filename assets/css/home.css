@@ -4,12 +4,15 @@
 }
 
 .appointment-form {
-    position: relative; 
-    margin: 40px auto 0; 
+    position: relative;
+    margin: 40px auto 0;
     border-radius: 10px;
-    display: flex;
+    width: 80vw; 
+    padding: 12px 30px;
+    gap: 6px;
     flex-direction: column;
-    width: 30vw;
+    background-color: #fcecdf;
+    border: 2px solid #fcecdf;
     transition: width 0.3s ease-in-out;
 }
 
@@ -32,8 +35,7 @@
     top: 10px;
     right: 10px;
     color: #751e28;
-    opacity: 0;
-    width: 30px; 
+    width: 30px;
     height: 30px;
     display: flex;
     align-items: center;
@@ -44,13 +46,12 @@
 
 #close-form-btn:hover {
     background: #d58c1f;
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 .appointment-form.expanded #close-form-btn {
     opacity: 1;
 }
-
 
 .appointment-form.expanded {
     width: 60vw; 
@@ -61,10 +62,9 @@
 }
 
 #full-form {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+    opacity: 1;
+    max-height: none;
+    overflow: visible;
 }
 
 #full-form.show {
@@ -76,6 +76,9 @@
     color: #912933;
 }
 
+#form-title {
+    padding-bottom: 1%;
+}
 .form-fl {
     margin-bottom: 5px;
 }
@@ -105,17 +108,22 @@ button:hover {
     background-color: #751e28;
 }
 
-.services-container {
+.services-slider-wrapper {
+    width: 80%;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.services-list {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    padding: 30px 0;
     text-align: center;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px; 
 }
 
 .service-item {
+    flex: 0 0 calc(100% / 3 - 20px); 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -130,12 +138,32 @@ button:hover {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 50%;
-    transition: color 0.1s ease-in-out, transform 0.2s ease-in-out;
+    transition: filter 0.1s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .service-item img:hover {
     filter: brightness(80%);
     transform: translateY(-10px);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    background: gray;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.dot.active {
+    background: #912933;
 }
 
 .about-container {
@@ -424,29 +452,9 @@ button:hover {
 
 @media (max-width: 768px) {
     .appointment-form {
-        width: 80vw; 
-        padding: 8px;
-    }
-    
-    .appointment-form.expanded {
         width: 90vw;
     }
-
-    .form-fl, .form-sl {
-        flex-direction: column; 
-    }
-
-    #toggle-form-btn {
-        width: 30vw;
-    }
-
-    #close-form-btn {
-        top: 5px;
-        right: 5px;
-        width: 25px;
-        height: 25px;
-    }
-
+    
     .services-container {
         gap: 30px;
         padding: 25px 0;
@@ -457,28 +465,59 @@ button:hover {
         height: 175px;
     }
 
-    #full-form {
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    .services-list {
+        justify-content: center;
     }
 
-    .appointment-form.expanded #full-form {
-        max-height: 1000px; 
-        opacity: 1;
+    .service-item {
+        flex: 0 0 calc(100% / 2 - 20px);
     }
 }
 
 @media (max-width: 480px) {
-    .appointment-form {
-        width: 95vw;
-        padding: 5px;
+    #full-form {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
     }
-
+    
+    .appointment-form {
+        display: none;
+        width: 30vw;
+        transition: width 0.3s ease-in-out;
+        position: relative;
+    }
+    
+    .form-fl, .form-sl {
+        flex-direction: column; 
+    }
+    
     .appointment-form.expanded {
+        display: block;
         width: 90vw;
-        padding: 10px;
+
+    }
+    
+    .appointment-form.expanded #full-form {
+        opacity: 1;
+        max-height: 500px;
+        flex-direction: column;
+    }
+    
+    /* Close button hidden by default */
+    #close-form-btn {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+    
+    /* Show close button when expanded */
+    .appointment-form.expanded #close-form-btn {
+        opacity: 1;
+    }
+    
+    #toggle-form-btn {
+        width: 60vw;
     }
 
     select, input, button {
@@ -497,11 +536,6 @@ button:hover {
         padding: 5px;
     }
 
-    .service-item img {
-        width: 150px;
-        height: 150px;
-    }
-
     .about-text {
         max-width: 80%;
     }
@@ -515,14 +549,18 @@ button:hover {
         width: 80%;
     }
 
-    #toggle-form-btn {
-        font-size: 1rem;
-        background-color: #fcecdf;
-        color: #912933;
-        width: 50vw;
+    .service-item img {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .mobile-socials {
+        border-top: 1px solid #912933;
+        padding-top: 2%;
     }
 
-    .appointment-form.expanded #full-form {
-        max-height: 1400px;  
+    .services-slider-wrapper {
+        margin-top: 10%;
+        margin-bottom: 10%;
     }
 }
