@@ -476,6 +476,7 @@ nav a {
         font-size: 0.65rem;
         line-height: 1;
         margin-bottom: 25px;
+        gap: 6px;
     }
 
     .footer-info p {
@@ -498,8 +499,8 @@ nav a {
     }
 
     .nav-logo img {
-        height: 64px;
-        width: 64px;
+        height: 54px;
+        width: 54px;
     }
 
     .nav-links {
