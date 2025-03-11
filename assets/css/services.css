@@ -19,46 +19,46 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     flex-direction: column;
     align-items: flex-start; 
     text-align: left; 
-    padding: 100px 50px;
+    padding: 10%;
     border-bottom: 1px solid;
     border-top: 1px solid;
 }
 
-/* General Styles */
-.content {
+main > section.content:not(#landing-section) {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
-    border-radius: 10px;
-    gap: 10px;
     flex-wrap: wrap;
 }
 
 /* Ensure alternation works properly */
-main > section.content:not(#landing-section):nth-of-type(even) {
+main > section.content:not(#landing-section):nth-of-type(even) .services-container {
     flex-direction: row !important;
 }
 
-main > section.content:not(#landing-section):nth-of-type(odd) {
+main > section.content:not(#landing-section):nth-of-type(odd) .services-container {
     flex-direction: row-reverse !important;
 }
 
-/* Alternating Colors */
-.peach {
-    background-color: #fcecdf;
+/* Letak text-box & image-box dlm satu container so senang susun*/
+.services-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px 0;
+    flex-wrap: wrap;
 }
 
-.white {
-    background-color: #ffffff;
-}
-
-/* Text Styling */
 .text-box {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
     max-width: 50%;
 }
 
+/* Kita dah ada h2 & p but if nak pakai the one below pun boleh
 .text-box h2 {
     font-family: 'InstrumentSans', Arial, sans-serif;
     font-size: 2rem;
@@ -72,6 +72,29 @@ main > section.content:not(#landing-section):nth-of-type(odd) {
     color: #751e28;
     line-height: 1.5;
     margin: 15px 0;
+    text-align: justify;
+}
+*/
+
+/* Aku remove yg effect when hover dia ada underline hitam*/
+.text-box a {
+    align-self: center;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.text-box a::after {
+    content: none; 
+}
+
+/* Text Styling */
+.text-box {
+    flex: 1;
+    max-width: 50%;
+}
+
+.text-box p {
     text-align: justify;
 }
 
@@ -96,10 +119,16 @@ main > section.content:not(#landing-section):nth-of-type(odd) {
 .image-box {
     flex: 1;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    max-width: 500px;
 }
 
 .image-box img {
     width: 100%;
+    min-width: 200px;
     max-width: 400px;
     height: auto;
     border-radius: 10px;
@@ -109,5 +138,34 @@ main > section.content:not(#landing-section):nth-of-type(odd) {
 
 .image-box img:hover {
     transform: scale(1.05);
+}
+
+/* Ni utk tablet*/
+@media (max-width: 768px) {
+    main > section.content:not(#landing-section):nth-of-type(even) .services-container,
+    main > section.content:not(#landing-section):nth-of-type(odd) .services-container {
+        flex-direction: column !important;
+    }
+
+    .text-box {
+        min-width: 80%;
+        padding-bottom: 5%;
+    }
+
+    .image-box  {
+        min-width: 200px;
+        max-width: 400px;
+    }
+}
+
+/* Ni utk mobile*/
+@media (max-width: 480px) {
+    .services-container {
+        width: 100%; 
+    }
+
+    .text-box, .image-box {
+        max-width: 80%; 
+    }
 }
 

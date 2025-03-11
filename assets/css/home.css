@@ -130,6 +130,7 @@ button:hover {
     gap: 15px;
     align-items: center;
     padding: 10px;
+    cursor: pointer;
 }
 
 .service-item img {
@@ -200,7 +201,7 @@ button:hover {
 
 .about-text {
     flex: 1;
-    text-align: left;
+    text-align: justify;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -210,10 +211,11 @@ button:hover {
 
 .updates-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 30px;
     margin-top: 20px;
+    width: 90%;
 }
 
 .update-item {
@@ -261,7 +263,6 @@ button:hover {
     font-size: 12px;
     color: #777;
 }
-
 
 .update-img {
     width: 100%;
@@ -491,6 +492,10 @@ button:hover {
     
     .form-fl, .form-sl {
         flex-direction: column; 
+    }
+
+    .form-fl, .form-sl input {
+        width: 100%;
     }
     
     .appointment-form.expanded {

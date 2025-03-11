@@ -366,7 +366,13 @@ nav a {
     overflow: visible;
 }
 
+.long-text {
+    display: block;
+}
 
+.short-text {
+    display: none;
+}
 
 @media (max-width: 768px) {
     body {
@@ -458,7 +464,7 @@ nav a {
         align-items: center;
         text-align: center;
         flex-wrap: wrap;
-        padding: 5px;
+        padding: 40px;
     }
 
     #footer-logo {
@@ -507,5 +513,13 @@ nav a {
     .hamburger {
         display: block;
         font-size: 2.5rem;
+    }
+
+    .long-text {
+        display: none;
+    }
+
+    .short-text {
+        display: block;
     }
 }
