@@ -19,7 +19,7 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     flex-direction: column;
     align-items: flex-start; 
     text-align: left; 
-    padding: 50px;
+    padding: 10%;
     border-bottom: 1px solid;
     border-top: 1px solid;
 }
@@ -58,98 +58,123 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
 
 .about-text {
     flex: 1;
-    text-align: justify;
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 20px;
     max-width: 50%;
+    text-align: justify;
 }
 
-.doctors-section {
+#doctors-section {
+    position: relative; 
+}
+
+/* This container simpan text-content & image-content  */
+.doctors-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-start; 
-    background-color: #fce7d5;
-    padding: 40px 100px;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+    flex-wrap: wrap
 }
 
 .text-content {
-    width: 50%;
-    text-align: left !important;
-    margin-left: -200px; 
+    width: 60%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.text-content h2,
 .text-content p {
-    text-align: justify !important;
-    margin-left: -200px;
-    word-spacing: 5px;
+    width: 92%;
 }
 
-.image-content {
+/* Makes this section a reference point for absolute positioning */
+#opening-hours {
+    position: relative;
+}
+
+.image-content,
+.image-content-paw {
     position: absolute;
-    bottom: -998px; 
-    right: 0.5%; 
-    z-index: 1; 
+    z-index: 1;
+    display: inline-block;
 }
 
-.image-content img {
-    width: 600px; 
-    max-width: 100%;
+/* Positions the (dog half body) image at the bottom-right section(doctors-section) */
+.image-content {
+    bottom: 0;
+    right: -42%;/*If nak susun kan gmbr*/
+}
+
+/* Positions the (dog paw) image t the top right section(opening-hours) */
+.image-content-paw {
+    top: -0.8%;
+    right: -42%;/*If nak susun kan gmbr*/
+}
+
+.image-content img,
+.image-content-paw img {
+    width: 75%; /*If nak besar kan gmbr*/
     height: auto;
 }
 
-.opening-hours {
-    text-align: left;
-    margin-left: -100px; 
-    padding-left: 20px; 
+/*Ada title and short sentence sikit*/
+.table-head{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1%;
 }
 
-.opening-hours h2 {
-    color: #8B0000; 
-    font-size: 40px;
-    margin-bottom: 10px;
-    position: absolute; 
-    left: -400px; 
-    top: 20px; 
-}
-
+/*i added width sikit kat table ni*/
 .hours-table {
-    margin-left: -10px; 
-    text-align: left;
+    width: 50%;
+    border: 2px solid;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
+/*i added bg color and border*/
 .hours-table th {
-    background-color: #fce7d5;
-    padding: 10px;
+    background-color: #912933;
+    color: white;
+    padding: 15px;
     font-size: 20px;
     text-align: left;
-    border-bottom: 2px solid #8B0000;
+    border: 2px solid black;
+    text-align: center;
 }
 
 .hours-table td {
     padding: 8px 15px;
     font-size: 18px;
-    border-bottom: 1px solid #ccc;
+    border: 2px solid;
+}
+
+/*if tutup bg color lain*/
+.hours-table .closed {
+    background-color: #eda325;
+    font-weight: bold;
 }
 
 .cat-content {
     position: absolute;
-    bottom: -1175px; 
-    left: 0.5%; 
-    z-index: 1; 
+    left: 0.5%;
+    z-index: 1;
 }
 
 .cat-content img {
-    width: 300px; 
+    width: 300px;
     max-width: 100%;
     height: auto;
-}
-
-.hours-table td:first-child {
-    font-weight: bold;
 }
 
 #google-map {
@@ -176,4 +201,169 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     border: none;
     padding-bottom: 20px;
     border-radius: 10px;
+}
+
+/* Ni utk tablet*/
+@media (max-width: 768px) {
+    .about-text {
+        max-width: 70%;
+    }
+
+    .about-image {
+        min-width: 250px;
+        max-width: 500px;
+    }
+
+    .long-text {
+        display: block;
+    }
+
+    .short-text {
+        display: none;
+    }
+
+    .doctors-container {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        justify-content: space-between;
+    }
+
+    .text-content p {
+        width: 90%;
+        padding-bottom: 20px;
+    }
+
+    .image-content,
+    .image-content-paw {
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .image-content {
+        bottom: 0;
+        right: -50%;
+    }
+    
+    .image-content-paw {
+        top: -1%;
+        right: -50%;
+    }
+    
+    .image-content img,
+    .image-content-paw img {
+        width: 95%;
+        height: auto;
+    }
+
+    .table-head {
+        margin-top: 11%;
+        width: 80%;
+    }
+
+    .hours-table {
+        width: 80%;
+        margin-top: 10px;
+        margin-bottom: 11%;
+    }
+
+    .hours-table th,
+    .hours-table td {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .cat-content {
+        display: block;
+        left: -18%;
+        bottom: 0%;
+    }
+
+    .cat-content img {
+        width: 50%;
+        height: auto;
+    }
+}
+
+/* Ni utk mobile*/
+@media (max-width: 480px) {
+    
+    .about-text {
+        max-width: 80%;
+    }
+
+    .about-image {
+        min-width: 250px;
+        max-width: 500px;
+    }
+
+    .long-text {
+        display: none;
+    }
+
+    .short-text {
+        display: block;
+    }
+
+    .doctors-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .text-content {
+        width: 80%;
+        padding-bottom: 40%;
+    }
+
+    .text-content p {
+        text-align: justify;
+    }
+
+    .image-content {
+        position: absolute;
+        bottom: 0%;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .image-content-paw {
+        position: absolute;
+        top: -0.8%; 
+        right: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .image-content img,
+    .image-content-paw img {
+        width: 155%;
+        height: auto;
+    }
+    
+    .table-head {
+        margin-top: 15%;
+        width: 80%;
+    }
+
+    .hours-table {
+        width: 80%;
+        margin-top: 10px;
+        margin-bottom: 15%;
+    }
+
+    .hours-table th,
+    .hours-table td {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .cat-content {
+        display: none;
+    }
 }

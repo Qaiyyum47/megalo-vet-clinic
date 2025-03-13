@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
     <title>Megalo Empire Animal Clinic</title>
 </head>
 <body>
@@ -39,18 +38,16 @@
             
                         <select id="service">
                             <option value="" disabled selected>Select a Service</option>
-                            <option value="EMERGENCY">Emergency Treatment</option>
-                            <option value="Consultation">Consultation</option>
-                            <option value="Vaccination">Vaccination</option>
-                            <option value="Deworming">Deworming</option>
-                            <option value="Spaying_neutering">Spaying/Neutering</option>
-                            <option value="Surgery">Surgery</option>
-                            <option value="Microchipping">Microchipping</option>
-                            <option value="Ultrasound">Ultrasound</option>
-                            <option value="Nutrition">Nutritional Consultation</option>
                             <option value="General_checkup">General Health Checkup</option>
+                            <option value="Consultation">Consultation</option>
+                            <option value="Nutrition">Nutritional Consultation</option>
+                            <option value="Vaccination">Vaccination</option>
+                            <option value="Spaying_neutering">Spaying/Neutering</option>
+                            <option value="Ultrasound">Ultrasound</option>
+                            <option value="Surgery">Surgery</option>
+                            <option value="EMERGENCY">Emergency Treatment</option>
                             <option value="Others">Others</option>
-                        </select>
+                        </select>                        
                     </div>
             
                     <div class="form-sl">
@@ -59,36 +56,48 @@
                         <p id="time-warning" style="color: red; font-size: 0.9rem; display: none;">
                             Only available between 9:30 AM and 5:30 PM
                         </p>
-                        <button type="submit" id="submit-btn" onclick="sendMessage()">Book</button>
+                        <button type="submit" id="submit-btn" onclick="sendMessage()">Book Appointment</button>
                     </div>
                 </div>
             </div> 
         </section>
-        
+
         <!-- Services Section -->
         <section id="services-section" class="content peach">
             <h2>Our Services</h2>
-            <div class="services-container">
-                <div class="service-item">
-                    <img src="assets/img/consultation.png" alt="Consultation" onclick="window.location.href='pages/services.html'">
-                    <h3>Consultation</h3>
+            <div class="services-slider-wrapper">
+                <div class="services-list">
+                    <div class="service-item">
+                        <img src="assets/img/consultation.png" alt="Consultation" onclick="window.location.href='pages/services.html'">
+                        <h3>Consultation</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/vaccine.jpg" alt="Vaccination" onclick="window.location.href='pages/services.html'">
+                        <h3>Vaccination</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/surgery.jpg" alt="Surgery" onclick="window.location.href='pages/services.html'">
+                        <h3>Surgery</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/ultrasound.jpg" alt="Ultrasound" onclick="window.location.href='pages/services.html'">
+                        <h3>Ultrasound</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/emergency.jpg" alt="Emergency Treatment" onclick="window.location.href='pages/services.html'">
+                        <h3>Emergency Treatment</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/consultation.png" alt="Consultation" onclick="window.location.href='pages/services.html'">
+                        <h3>Consultation</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="assets/img/vaccine.jpg" alt="Vaccination" onclick="window.location.href='pages/services.html'">
+                        <h3>Vaccination</h3>
+                    </div>
                 </div>
-                <div class="service-item">
-                    <img src="assets/img/vaccine.jpg" alt="Vaccination" onclick="window.location.href='pages/services.html'">
-                    <h3>Vaccination</h3>
-                </div>
-                <div class="service-item">
-                    <img src="assets/img/surgery.jpg" alt="Surgery" onclick="window.location.href='pages/services.html'">
-                    <h3>Surgery</h3>
-                </div>
-                <div class="service-item">
-                    <img src="assets/img/ultrasound.jpg" alt="Ultrasound" onclick="window.location.href='pages/services.html'">
-                    <h3>Ultrasound</h3>
-                </div>
-                <div class="service-item">
-                    <img src="assets/img/emergency.jpg" alt="Emergency Treatment" onclick="window.location.href='pages/services.html'">
-                    <h3>Emergency Treatment</h3>
-                </div>
+
+                <div class="pagination"></div>
             </div>
         </section>
 
@@ -96,7 +105,7 @@
         <section id="about-section" class="content white">
             <div class="about-container">
                 <div class="about-image">
-                    <img src="assets/img/outside.jpg" alt="Clinic Outside" onclick="window.open('https://maps.app.goo.gl/nhwWNMaEDHRuLKUG9', '_blank')">
+                    <img src="assets/img/outside.jpg" alt="Clinic Outside">
                 </div>
                 <div class="about-text">
                     <h2>A veterinary clinic in the heart of Bintulu town</h2>
@@ -104,7 +113,7 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- Updates Section -->
         <section id="updates-section" class="content peach">
             <h2>Latest Updates</h2>
@@ -119,7 +128,7 @@
             <div class="testimonials-container">
                     <div class="testimonial-item">
                         <div class="testimonial-header">
-                            <div class="profile-pic"></div>
+                            <img src="assets/img/blank-profile.jpg" alt="profile picture" class="profile-pic">
                             <span class="username">Abraham</span>
                         </div>
                         <div class="testimonial-content">
@@ -130,7 +139,7 @@
                 
                     <div class="testimonial-item">
                         <div class="testimonial-header">
-                            <div class="profile-pic"></div>
+                            <img src="assets/img/blank-profile.jpg" alt="profile picture" class="profile-pic">
                             <span class="username">Fiona Limban</span>
                         </div>
                         <div class="testimonial-content">
@@ -141,18 +150,18 @@
                     
                     <div class="testimonial-item">
                         <div class="testimonial-header">
-                            <div class="profile-pic"></div>
+                            <img src="assets/img/blank-profile.jpg" alt="profile picture" class="profile-pic">
                             <span class="username">Ling shing xuan</span>
                         </div>
                         <div class="testimonial-content">
-                            <p>"This is the first time I came to this pet hospital.All the staff are very enthusiastic, doctor will also take the initiative and talk to me about my cat's condition,everyday update to."</p>
+                            <p>"This is the first time I came to this pet hospital.All the staff are very enthusiastic, doctor will also take the initiative and talk to me about my cat's condition"</p>
                             <div class="testimonial-rating">★★★★★</div>
                         </div>
                     </div>
 
                     <div class="testimonial-item">
                         <div class="testimonial-header">
-                            <div class="profile-pic"></div>
+                            <img src="assets/img/blank-profile.jpg" alt="profile picture" class="profile-pic">
                             <span class="username">Eesham H</span>
                         </div>
                         <div class="testimonial-content">
@@ -163,10 +172,10 @@
         </section>          
 
         <!-- Google Map Section -->
-        <section id="google-map" class="content">
+        <section id="google-map" class="content peach">
             <div>
                 <h2>Find Us</h2>
-                <p>Our clinic is located at...</p>
+                <p>Located in the heart of Bintulu, our clinic is easy to find.</p>
             </div>
             <div class="map-bg">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3848.767108810838!2d113.04344487497134!3d3.1916757967835823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321dc15bd0c56d81%3A0x96e48a6fc947ecfe!2sMegalo%20Empire%20Animal%20Clinic!5e1!3m2!1sen!2smy!4v1739267229737!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -174,7 +183,7 @@
         </section>
         
         <!-- FAQ Section -->
-        <section id="faq-section" class="content peach">
+        <section id="faq-section" class="content white">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-container">
                 <div class="faq-item">
@@ -198,8 +207,8 @@
                     <div class="faq-answer">Core vaccinations include rabies, distemper, and parvovirus for dogs, and rabies, FVRCP for cats. We also offer optional vaccines based on your pet’s needs.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Do you offer pet grooming services? <span class="arrow">&#9660;</span></button>
-                    <div class="faq-answer">Yes, we offer grooming services such as bathing, nail trimming, ear cleaning, and fur trimming for dogs and cats.</div>
+                    <button class="faq-question">What payment methods do you accept? <span class="arrow">&#9660;</span></button>
+                    <div class="faq-answer">We accept cash, credit/debit cards, and online transfers.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What payment methods do you accept? <span class="arrow">&#9660;</span></button>
@@ -211,10 +220,10 @@
 
     <!-- Footer -->
     <footer id="main-footer"> 
-
     </footer>
-    <p id="cpr">&copy; 2025 All rights reserved.</p>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/home.js"></script>
+
 </body>
 </html>
 
