@@ -18,33 +18,26 @@
             <h3>Center</h3>
         </section>
 
-        <section id="article-section" class="content white">
-            <form action="admin-submit.php" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="articleTitle">Title</label>
-                    <input type="text" name="articleTitle" id="articleTitle" required>
-                </div>
-            
-                <div class="form-group">
-                    <label for="article">Content</label>
-                    <textarea name="article" id="article" rows="5" required></textarea>
-                </div>
 
-                <div class="form-group">
-                    <label for="imageLink">Image Link (Optional)</label>
-                    <input type="text" name="imageLink" id="imageLink">
-                </div>
+        <section id="articles-list" class="content white">
+            <h2>Published Articles</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date Published</th>
+                        <th>Time Published</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="articleTableBody">
+                    <!-- Rows will be inserted dynamically using JavaScript -->
+                </tbody>
+            </table>
 
-                <div class="form-group">
-                    <label for="imageFile">Upload Image (Optional)</label>
-                    <input type="file" name="imageFile" id="imageFile" accept="image/*">
-                </div>
-            
-                <div class="btn-group">
-                    <input type="submit" id="submit" value="Submit" class="btn">
-                    <input type="reset" id="reset" value="Reset Form" class="btn">
-                </div>
-            </form>
+            <a href="create_article.php">
+                <button type="button" class="create-article-btn">Create New Article</button>
+            </a>
         </section>
     </main>
 
@@ -52,5 +45,6 @@
     </footer>
     <p id="cpr">&copy; 2025 All rights reserved.</p>
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/admin.js"></script>
 </body>
 </html>
