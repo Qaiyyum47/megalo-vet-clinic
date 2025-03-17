@@ -16,22 +16,28 @@ if ($conn->connect_error) {
     die("<p style='color:red;'>❌ Database connection failed: " . $conn->connect_error . "</p>");
 }
 
-// Get article ID from URL
+// Get article ID from URL and validate it
 $articleId = isset($_GET['id']) && ctype_digit($_GET['id']) ? intval($_GET['id']) : 0;
+
+if ($articleId <= 0) {
+    die("<p style='color:red;'>❌ Invalid article ID.</p>");
+}
+
 $articleTitle = "";
 $articleContent = "";
 $imageLink = "";
 
-// Fetch article details if ID is valid
-if ($articleId > 0) {
-    $stmt = $conn->prepare("SELECT title, content, imageLink FROM Article WHERE id = ?");
-    $stmt->bind_param("i", $articleId);
-    $stmt->execute();
-    $stmt->bind_result($articleTitle, $articleContent, $imageLink);
-    $stmt->fetch();
-    $stmt->close();
+// Fetch article details
+$stmt = $conn->prepare("SELECT title, content, imageLink FROM Article WHERE id = ?");
+$stmt->bind_param("i", $articleId);
+$stmt->execute();
+$stmt->bind_result($articleTitle, $articleContent, $imageLink);
+
+if (!$stmt->fetch()) {
+    die("<p style='color:red;'>❌ Article not found.</p>");
 }
 
+$stmt->close();
 $conn->close();
 ?>
 
@@ -58,31 +64,23 @@ $conn->close();
 
         <div class="form-group">
             <label>Title:</label>
-            <input type="text" name="articleTitle" value="<?php echo htmlspecialchars($articleTitle); ?>" required><br><br>
+            <input type="text" name="articleTitle" value="<?php echo htmlspecialchars($articleTitle); ?>" required>
         </div>
         
         <div class="form-group">
             <label>Content:</label>
-            <textarea name="articleContent" rows="5" required><?php echo htmlspecialchars($articleContent); ?></textarea><br><br>
+            <textarea name="articleContent" rows="5" required><?php echo htmlspecialchars($articleContent); ?></textarea>
         </div>
 
         <div class="form-group">
             <label>Image Link:</label>
-            <input type="text" name="imageLink" value="<?php echo htmlspecialchars($imageLink); ?>"><br><br>
+            <input type="text" name="imageLink" value="<?php echo htmlspecialchars($imageLink); ?>">
         </div>
 
         <div class="btn-group">
             <input type="submit" id="submit" value="Update" class="btn">
             <button type="button" id="delete" class="btn red" onclick="confirmDelete(<?php echo $articleId; ?>)">Delete</button>
         </div>
-
-        <script>
-            function confirmDelete(articleId) {
-                if (confirm("Are you sure you want to delete this article?")) {
-                    window.location.href = "../api/delete_article.php?id=" + articleId;
-                }
-            }
-        </script>
     </form>
 
     <footer id="main-footer"></footer>
@@ -90,6 +88,12 @@ $conn->close();
 
     <script src="../assets/js/main.js"></script>
     <script>
+        function confirmDelete(articleId) {
+            if (confirm("Are you sure you want to delete this article? This action cannot be undone!")) {
+                window.location.href = "../api/delete_article.php?id=" + articleId;
+            }
+        }
+
         // Show success message if updated
         window.onload = function () {
             const urlParams = new URLSearchParams(window.location.search);

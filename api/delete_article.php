@@ -16,17 +16,21 @@ if ($conn->connect_error) {
     die("<p style='color:red;'>❌ Database connection failed: " . $conn->connect_error . "</p>");
 }
 
-// Get article ID from URL
-$articleId = isset($_GET['id']) && ctype_digit($_GET['id']) ? intval($_GET['id']) : 0;
+// Get article ID
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['articleId']) && ctype_digit($_POST['articleId'])) {
+    $articleId = intval($_POST['articleId']);
 
-if ($articleId > 0) {
+    // Delete article query
     $stmt = $conn->prepare("DELETE FROM Article WHERE id = ?");
     $stmt->bind_param("i", $articleId);
+
     if ($stmt->execute()) {
-        echo "<script>alert('✅ Article deleted successfully!'); window.location.href = '../pages/admin.html';</script>";
+        header("Location: ../pages/admin.html?deleted=1");
+        exit();
     } else {
-        echo "<script>alert('❌ Failed to delete article.'); window.history.back();</script>";
+        die("<p style='color:red;'>❌ Failed to delete article: " . $stmt->error . "</p>");
     }
+
     $stmt->close();
 }
 

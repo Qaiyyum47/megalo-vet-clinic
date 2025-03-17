@@ -46,5 +46,15 @@
     <p id="cpr">&copy; 2025 All rights reserved.</p>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/admin.js"></script>
+    <script>
+        // Show success pop-up if article was created
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has("success")) {
+                alert("✅ Article created successfully!");
+                window.location.href = "admin.html"; // Redirect to admin panel
+            }
+        };
+    </script>
 </body>
 </html>

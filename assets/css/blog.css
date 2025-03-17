@@ -37,7 +37,7 @@
 
 .article {
     display: flex;
-    align-items: center;
+    align-items: stretch; /* Make children take full height */
     gap: 30px;
     width: 100%;
     border-radius: 10px;
@@ -56,11 +56,21 @@
 
 .article {
     display: flex;
-    align-items: flex-start; /* Aligns content to the top */
+    align-items: stretch; /* Ensures children take full height */
     gap: 30px;
     width: 100%;
     border-radius: 10px;
     padding: 30px;
+}
+
+.article-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns text to the top */
+    align-items: flex-start;
+    flex-grow: 1; /* Expands to fill space */
+    min-height: 100%; /* Ensures it takes full height */
+    position: relative; /* Allows absolute positioning */
 }
 
 .article-content h1 {
@@ -80,11 +90,11 @@
     font-weight: 400; /* Ensures regular weight is applied */
 }
 
-@font-face {
-    font-family: 'InstrumentSans';
-    src: url('../font/InstrumentSans-Regular.ttf') format('truetype');
-    font-weight: 400; /* Regular weight */
-    font-style: normal;
+.article p, #article-body {
+    margin: 10px 0;
+    font-weight: 400; 
+    font-family: 'InstrumentSans', sans-serif;
+    text-align: justify; /* Justifies text */
 }
 
 @font-face {
@@ -131,3 +141,21 @@
 }
 
 
+.btn-group {
+    display: flex; /* Puts buttons side by side */
+    gap: 1em; /* Adds spacing between buttons */
+    justify-content: center; /* Centers buttons */
+    margin-top: 1em; /* Adds spacing above */
+}
+
+.btn {
+    position: absolute;
+    bottom: 0; /* Sticks to the bottom */
+    left: 0; /* Aligns to the left */
+    background-color: #f8f8f8; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
