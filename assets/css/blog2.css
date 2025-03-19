@@ -1,0 +1,66 @@
+body, main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+}
+
+#articles-container {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+}
+
+.article img {
+    height: 50vh;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    padding: 10px 10px 0px 0px;
+}
+
+/* Fix: Apply padding only inside .article */
+.article h1, .article p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Fix: Ensure text is not bold */
+.article p, #article-body {
+    margin: 10px 0;
+    font-weight: 400; 
+    font-family: 'InstrumentSans', sans-serif ;
+}
+
+@font-face {
+    font-family: 'InstrumentSans';
+    src: url('../font/InstrumentSans-Regular.ttf') format('truetype');
+    font-weight: 400; /* Regular weight */
+    font-style: normal;
+    text-justify:;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 0;
+}

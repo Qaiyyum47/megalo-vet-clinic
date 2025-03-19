@@ -130,21 +130,178 @@ document.addEventListener("DOMContentLoaded", function () {
 
     whatsappBtn.onclick = function () {
         window.open("https://wa.me/60173807339", "_blank");
-    };
+    };    
+});
 
-    function adjustWhatsAppPosition() {
-        const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const fullHeight = document.body.scrollHeight;
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleFormBtn = document.getElementById("toggle-form-btn");
+    const fullForm = document.getElementById("full-form");
+    const nameInput = document.getElementById("name");
+    const closeBtn = document.getElementById("close-form-btn");
+    const appointmentForm = document.getElementById("appointment-form");
 
-        if (scrollPosition + windowHeight >= fullHeight - 10) {
-            whatsappBtn.style.bottom = "auto";
-            whatsappBtn.style.top = "30%"; 
-        } else {
-            whatsappBtn.style.top = "auto";
-            whatsappBtn.style.bottom = "50px";
-        }
+    toggleFormBtn.addEventListener("click", function () {
+        nameInput.classList.add("show");
+        fullForm.classList.add("show");
+        appointmentForm.classList.add("expanded");
+        closeBtn.style.display = "block";
+        toggleFormBtn.style.display = "none";
+    });
+
+    closeBtn.addEventListener("click", function () {
+        fullForm.classList.remove("show");
+        nameInput.classList.remove("show");
+        appointmentForm.classList.remove("expanded");
+        closeBtn.style.display = "none";
+        toggleFormBtn.style.display = "block"; 
+
+        document.querySelectorAll("#full-form input, #full-form select").forEach(input => {
+            input.value = "";
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#datepicker", {
+        dateFormat: "d-m-Y",
+        minDate: "today",
+        maxDate: new Date().fp_incr(365)
+    });
+});
+
+document.getElementById("timepicker").addEventListener("input", function () {
+    let time = this.value;
+    let minTime = "09:30";
+    let maxTime = "17:30";
+    let warning = document.getElementById("time-warning");
+
+    if (time < minTime || time > maxTime) {
+        warning.style.display = "block";  
+        this.value = ""; 
+    } else {
+        warning.style.display = "none";  
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+        const question = item.querySelector(".faq-question");
+
+        question.addEventListener("click", function () {
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove("active");
+                }
+            });
+
+            item.classList.toggle("active");
+        });
+    });
+});
+
+function sendMessage() {
+    const name = document.getElementById('name').value.trim();
+    const pet = document.getElementById('pet').value;
+    const service = document.getElementById('service').value;
+    const date = document.getElementById('datepicker').value;
+    const time = document.getElementById('timepicker').value;
+    const timeWarning = document.getElementById('time-warning');
+
+    if (!name || !pet || !service || !date || !time) {
+        alert("Please fill in all fields before booking.");
+        return;
     }
 
-    window.addEventListener("scroll", adjustWhatsAppPosition);
-});
+    const currentTime = new Date(`1970-01-01T${time}:00`);
+    const startTime = new Date('1970-01-01T09:30:00');
+    const endTime = new Date('1970-01-01T17:30:00');
+
+    if (currentTime < startTime || currentTime > endTime) {
+        timeWarning.style.display = 'block';
+        return;
+    } else {
+        timeWarning.style.display = 'none';
+    }
+
+    const message = `*Appointment Request*:
+- *Name*: ${name}
+- *Pet*: ${pet}
+- *Service Requested*: ${service}
+- *Date*: ${date}
+- *Time*: ${time}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `https://wa.me/601160814971?text=${encodedMessage}`;
+
+    window.open(whatsappLink, '_blank');
+}
+
+
+async function fetchGoogleSheetData() {
+    const sheetURL = 'https://script.google.com/macros/s/AKfycbwoNH9hqxXEuZqxL2HaGimresjT25O3JEtibARgyMm2C_gIdOpTffKoEZz0-jN0UzETow/exec';  
+
+    try {
+        const response = await fetch(sheetURL);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        
+        const data = await response.json();
+        console.log(data);
+
+        const entries = data.data;
+        const updatesContainer = document.querySelector('.updates-container');
+
+        if (!updatesContainer) {
+            console.error("Error: '.updates-container' not found in the document.");
+            return;
+        }
+
+        updatesContainer.innerHTML = "";
+
+        entries.forEach(entry => {
+            let imageUrl = entry.imageUrl;
+            const caption = entry.caption;
+            const timestamp = entry.timestamp;
+            const username = entry.username;
+
+            const match = imageUrl.match(/id=([\w-]+)/);
+            if (match) {
+                imageUrl = `https://drive.google.com/thumbnail?id=${match[1]}`;
+            }
+
+            const dateObj = new Date(timestamp);
+            const formattedDate = dateObj.toLocaleString("en-GB", {
+                day: "numeric",
+                month: "numeric",
+                year: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                hour12: true
+            }).replace(",", "");
+
+            const updateItem = document.createElement('div');
+            updateItem.classList.add('update-item');
+        
+            updateItem.innerHTML = `
+                <div class="update-header">
+                    <img src="assets/img/icon/ev-logo.png" class="profile-pic" alt="Profile">
+                    <span class="username">${username}</span>
+                </div>
+                <img src="${imageUrl}" class="update-img" alt="Update Image" loading="lazy">
+                <div class="update-content">
+                    <p>${caption}</p>
+                    <span class="timestamp">${formattedDate}</span>
+                </div>
+            `;
+        
+            updatesContainer.appendChild(updateItem);
+        });        
+
+    } catch (error) {
+        console.error('Error fetching Google Sheets data:', error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", fetchGoogleSheetData);

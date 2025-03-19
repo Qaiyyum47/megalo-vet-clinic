@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <title>Admin Center - Megalo Empire Animal Clinic</title>
+</head>
+<body>
+    <header id="main-header">
+    </header>
+
+    <main>
+        <section id="landing-section" class="content red">
+            <h1>Admin</h1>
+            <h3>Center</h3>
+        </section>
+
+
+        <section id="articles-list" class="content white">
+            <h2>Published Articles</h2>
+            <a href="create_article.php">
+                <button type="button" class="create-article-btn">Create New Article</button>
+            </a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date Published</th>
+                        <th>Time Published</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="articleTableBody">
+                    <!-- Rows will be inserted dynamically using JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer id="main-footer"> 
+    </footer>
+    <p id="cpr">&copy; 2025 All rights reserved.</p>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/admin.js"></script>
+    <script>
+        // Show success pop-up if article was created
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has("success")) {
+                alert("✅ Article created successfully!");
+                window.location.href = "admin.html"; // Redirect to admin panel
+            }
+        };
+    </script>
+</body>
+</html>

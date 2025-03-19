@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <title>Admin Center - Megalo Empire Animal Clinic</title>
+</head>
+<body>
+    <header id="main-header">
+    </header>
+
+    <main>
+        <section id="landing-section" class="content red">
+            <h1>Admin</h1>
+            <h3>Center</h3>
+        </section>
+
+        <section id="article-section" class="content white">
+            <form action="admin-submit.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="articleTitle">Title</label>
+                    <input type="text" name="articleTitle" id="articleTitle" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="article">Content</label>
+                    <textarea name="article" id="article" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageLink">Image Link (Optional)</label>
+                    <input type="text" name="imageLink" id="imageLink">
+                </div>
+
+                <div class="form-group">
+                    <label for="imageFile">Upload Image (Optional)</label>
+                    <input type="file" name="imageFile" id="imageFile" accept="image/*">
+                </div>
+            
+                <div class="btn-group">
+                    <input type="submit" id="submit" value="Submit" class="btn">
+                    <input type="reset" id="reset" value="Reset Form" class="btn">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer id="main-footer"> 
+    </footer>
+    <p id="cpr">&copy; 2025 All rights reserved.</p>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
