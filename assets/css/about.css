@@ -1,17 +1,3 @@
-/* 
-Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS! 
-- Titles mostly use `h2` ).
--Subheading pakai 'h3' (oh, and it's yellow-colored: `#eda325`)
-- Bigger titles? Use `h1` or `h2`.
-- For regular text, just stick to `p`.
-- Links (`<a>`) have hover effects with a little animation.
-- Most of the alignment is handled using `flexbox`, so belajar elok2 that thing
-- Section background colors(e.g class=content red)? Use `.red`, `.peach`, and `.white` classes.
-- **IMPORTANT:** Jangan kacau global.css styles. Apa-apa, message Yum dulu takut kacau code orang lain.
-- **Stick to your assigned page!** Jangan edit page lain, nanti merge conflicts/clash (basically kena 
-    check code satu2 mana yg clash astu kena delete mana yang tanak). 
-*/
-
 #landing-section {
     width: 100vw;
     min-height: 45vh;
@@ -71,7 +57,6 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     position: relative; 
 }
 
-/* This container simpan text-content & image-content  */
 .doctors-container {
     display: flex;
     justify-content: space-between;
@@ -95,7 +80,6 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     width: 92%;
 }
 
-/* Makes this section a reference point for absolute positioning */
 #opening-hours {
     position: relative;
 }
@@ -107,25 +91,22 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     display: inline-block;
 }
 
-/* Positions the (dog half body) image at the bottom-right section(doctors-section) */
 .image-content {
     bottom: 0;
-    right: -42%;/*If nak susun kan gmbr*/
+    right: -42%;
 }
 
-/* Positions the (dog paw) image t the top right section(opening-hours) */
 .image-content-paw {
     top: -0.8%;
-    right: -42%;/*If nak susun kan gmbr*/
+    right: -42%;
 }
 
 .image-content img,
 .image-content-paw img {
-    width: 75%; /*If nak besar kan gmbr*/
+    width: 75%; 
     height: auto;
 }
 
-/*Ada title and short sentence sikit*/
 .table-head{
     width: 30%;
     display: flex;
@@ -134,7 +115,6 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     margin-bottom: 1%;
 }
 
-/*i added width sikit kat table ni*/
 .hours-table {
     width: 50%;
     border: 2px solid;
@@ -142,7 +122,6 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     margin-top: 20px;
 }
 
-/*i added bg color and border*/
 .hours-table th {
     background-color: #912933;
     color: white;
@@ -159,7 +138,6 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     border: 2px solid;
 }
 
-/*if tutup bg color lain*/
 .hours-table .closed {
     background-color: #eda325;
     font-weight: bold;
@@ -203,7 +181,25 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     border-radius: 10px;
 }
 
-/* Ni utk tablet*/
+.btn {
+    background-color: #912933;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    transition: background 0.5s ease-in-out;
+    margin-top: 2%;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #751e28;
+}
+
+
 @media (max-width: 768px) {
     .about-text {
         max-width: 70%;
@@ -287,7 +283,6 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     }
 }
 
-/* Ni utk mobile*/
 @media (max-width: 480px) {
     
     .about-text {
@@ -366,43 +361,4 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     .cat-content {
         display: none;
     }
-}
-
-.text-box a {
-    align-self: center;
-    text-decoration: none;
-    position: relative;
-    transition: transform 0.2s ease-in-out;
-}
-
-.text-box a::after {
-    content: none; 
-}
-
-/* Text Styling */
-.text-box {
-    flex: 1;
-    max-width: 50%;
-}
-
-.text-box p {
-    text-align: justify;
-}
-
-/* Buttons */
-.btn {
-    background-color: #912933;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1rem;
-    display: inline-block;
-    transition: background 0.2s ease-in-out;
-    margin-top: 20px;
-}
-
-.btn:hover {
-    background-color: #751e28;
 }
