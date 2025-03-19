@@ -52,6 +52,10 @@ a:hover::after {
     width: 100%;
 }
 
+.no-effect::after {
+    display: none;
+}
+
 h1 {
     font-family: 'PerfectlyVintage', sans-serif;
     font-size: 5rem;
