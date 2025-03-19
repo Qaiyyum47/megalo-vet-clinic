@@ -16,22 +16,24 @@ if ($conn->connect_error) {
     die("<p style='color:red;'>❌ Database connection failed: " . $conn->connect_error . "</p>");
 }
 
-// Get article ID
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['articleId']) && ctype_digit($_POST['articleId'])) {
-    $articleId = intval($_POST['articleId']);
+// Use GET method for deletion
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id']) && ctype_digit($_GET['id'])) {
+    $articleId = intval($_GET['id']);
 
-    // Delete article query
+    // Prepare delete query
     $stmt = $conn->prepare("DELETE FROM Article WHERE id = ?");
     $stmt->bind_param("i", $articleId);
 
     if ($stmt->execute()) {
+        $stmt->close();
+        $conn->close();
         header("Location: ../pages/admin.html?deleted=1");
         exit();
     } else {
-        die("<p style='color:red;'>❌ Failed to delete article: " . $stmt->error . "</p>");
+        die("<p style='color:red;'>❌ Failed to delete article: " . $stmt->error . " | " . $conn->error . "</p>");
     }
-
-    $stmt->close();
+} else {
+    die("<p style='color:red;'>❌ Invalid request.</p>");
 }
 
 $conn->close();
