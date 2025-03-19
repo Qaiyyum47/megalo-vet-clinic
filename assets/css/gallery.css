@@ -132,8 +132,54 @@ body {
     background-color: #faebd7;
 }
 
+  .tips-section {
+    padding: 40px 0;
+  }
+
+  .container {
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    white-space: nowrap; /* Prevent wrapping */
+    display: flex;
+    flex-wrap: nowrap; /* Ensures they stay in a row */
+    gap: 20px; /* Adds spacing between videos */
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Allows scrolling on smaller screens */
+}
+
+.tip-card {
+    min-width: 300px; /* Ensures videos have enough space */
+    flex-shrink: 0; /* Prevents shrinking */
+    text-align: center;
+    background-color: #f8f9fa; /* Light background */
+    padding: 15px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;
+    margin: 10px;
+}
+
+  iframe {
+    height: 150px; /* Make video smaller */
+  }
+  
+  .tip-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  .tip-card p {
+    font-size: 14px;
+    color: #666;
+  }
+
 @media (max-width: 768px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+
