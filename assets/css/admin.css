@@ -1,17 +1,3 @@
-/* 
-Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS! 
-- Titles mostly use `h2` ).
-- Subheading pakai 'h3' (oh, and it's yellow-colored: `#eda325`)
-- Bigger titles? Use `h1` or `h2`.
-- For regular text, just stick to `p`.
-- Links (`<a>`) have hover effects with a little animation.
-- Most of the alignment is handled using `flexbox`, so belajar elok2 that thing
-- Section background colors(e.g class=content red)? Use `.red`, `.peach`, and `.white` classes.
-- **IMPORTANT:** Jangan kacau global.css styles. Apa-apa, message Yum dulu takut kacau code orang lain.
-- **Stick to your assigned page!** Jangan edit page lain, nanti merge conflicts/clash (basically kena 
-    check code satu2 mana yg clash astu kena delete mana yang tanak). 
-*/
-
 #landing-section {
     width: 100vw;
     min-height: 45vh;
@@ -19,23 +5,20 @@ Hey, just a heads-up(REMINDER ON WHATS IN GLOBAL.CSS!
     flex-direction: column;
     align-items: flex-start; 
     text-align: left; 
-    padding: 50px;
+    padding: 10%;
     border-bottom: 1px solid;
     border-top: 1px solid;
 }
 
-
-/* Style for form layout */
 form {
     display: flex;
     flex-direction: column;
-    gap: 1em; /* Space between form groups */
+    gap: 1em;
     width: 90vw;
     padding: 30px;
     height: 90vw;
 }
 
-/* /* Style for each label-input pair */
 .form-group {
     width: 100%;
     display: flex;
@@ -43,59 +26,36 @@ form {
     justify-content: space-between;
 }
 
-/* Label styling */
 label {
     flex: 1;
     text-align: left;
     padding-right: 1em;
-    font-family: 'InstrumentSans-Bold', sans-serif; /* Use the bold version */
-    font-size: 1.2rem;
 }
 
-/* Input & textarea styling */
 input, textarea {
     flex: 2;
     width: 100%;
-    font-family: 'InstrumentSans', sans-serif; /* Use the regular version */
-    font-weight: 400; /* Ensure it's normal weight */
-    font-size: 1.2rem;
     padding: 10px;
 }
 
-/* Adjust textarea height */
 textarea {
-    height: 250px; /* Increases height of textarea */
-    resize: vertical; /* Allows users to resize */
+    height: 250px;
+    resize: vertical;
 }
 
 .btn-group {
-    display: flex; /* Puts buttons side by side */
-    gap: 1em; /* Adds spacing between buttons */
-    justify-content: center; /* Centers buttons */
-    margin-top: 1em; /* Adds spacing above */
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 1em;
 }
 
-/* Adjust button size */
 .btn {
     height: 50px;
-    padding: 0em 2em; /* Adjusts padding for better button size */
-    font-size: 1em; /* Ensures readable text */
+    padding: 0em 2em;
+    font-size: 1em;
     border: none;
     cursor: pointer;
-}
-
-@font-face {
-    font-family: 'InstrumentSans';
-    src: url('../font/InstrumentSans-Regular.ttf') format('truetype');
-    font-weight: 400; /* Regular weight */
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'InstrumentSans-Bold';
-    src: url('../font/InstrumentSans-Bold.ttf') format('truetype'); /* Make sure the bold font is actually bold */
-    font-weight: 700; /* Bold weight */
-    font-style: normal;
 }
 
 table {
@@ -107,39 +67,36 @@ table {
 
 th, td {
     padding: 20px;
+    border: 1px solid #ccc;
 }
 
 th {
     background-color: #fce7d5;
-    font-size: 20px;
-    border: 1px solid #ccc;
-}
-
-td {
-    font-size: 18px;
-    border: 1px solid #ccc;
 }
 
 .create-article-btn {
-    background-color: #8B0000;
+    background-color: #912933;
     color: white;
-    padding: 10px;
+    padding: 15px;
+    border: none;
     border-radius: 8px;
-    margin: 10px;
-    width: 15vw;
-    height: 5vh;
     text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    transition: background 0.5s ease-in-out;
+    margin: 2%;
 }
 
-a {
-    text-decoration: none;
+.btn:hover {
+    background-color: #751e28;
 }
 
-a::after {
-    content: none;
-}
+@media (max-width: 768px) {     
+    table {
+        width: 80vw;
+    }
 
-.edit-btn {
-    width: 100%;
-    height: 100%;
+    th, td {
+        font-size: 1rem;
+    }
 }
