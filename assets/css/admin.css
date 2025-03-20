@@ -6,6 +6,7 @@
     align-items: flex-start; 
     text-align: left; 
     padding: 10%;
+    padding: 10%;
     border-bottom: 1px solid;
     border-top: 1px solid;
 }
@@ -13,6 +14,7 @@
 form {
     display: flex;
     flex-direction: column;
+    gap: 1em;
     gap: 1em;
     width: 90vw;
     padding: 30px;
@@ -41,9 +43,15 @@ input, textarea {
 textarea {
     height: 250px;
     resize: vertical;
+    height: 250px;
+    resize: vertical;
 }
 
 .btn-group {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 1em;
     display: flex;
     gap: 1em;
     justify-content: center;
@@ -52,6 +60,8 @@ textarea {
 
 .btn {
     height: 50px;
+    padding: 0em 2em;
+    font-size: 1em;
     padding: 0em 2em;
     font-size: 1em;
     border: none;
@@ -68,6 +78,7 @@ table {
 th, td {
     padding: 20px;
     border: 1px solid #ccc;
+    border: 1px solid #ccc;
 }
 
 th {
@@ -76,7 +87,10 @@ th {
 
 .create-article-btn {
     background-color: #912933;
+    background-color: #912933;
     color: white;
+    padding: 15px;
+    border: none;
     padding: 15px;
     border: none;
     border-radius: 8px;
@@ -85,8 +99,14 @@ th {
     display: inline-block;
     transition: background 0.5s ease-in-out;
     margin: 2%;
+    font-size: 1rem;
+    display: inline-block;
+    transition: background 0.5s ease-in-out;
+    margin: 2%;
 }
 
+.btn:hover {
+    background-color: #751e28;
 .btn:hover {
     background-color: #751e28;
 }

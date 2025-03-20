@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <h1>${article.title}</h1>
                                 <p class="article-date">📅 ${datePublished}</p>
                                 <p>${previewContent}</p>
-                                <a href="blog_post.html?id=${article.id}" class="btn">Read More</a>
+                                <a href="blog_post.html?id=${article.id}" class="btn no-effect">Read More</a>
                             </div>
                         </div>
                     `;

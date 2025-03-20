@@ -11,8 +11,8 @@
 }
 
 #landing-section h3 {
-    font-weight: 700; /* Makes h3 bold */
-    font-family: 'InstrumentSans-Bold', sans-serif; /* Ensures it uses the bold font */
+    font-weight: 700;
+    font-family: 'InstrumentSans-Bold', sans-serif;
 }
 
 .articles-container {
@@ -22,61 +22,46 @@
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
     padding: 0px;
 }
 
 .article-date {
-    font-size: 0.8rem;  /* Smaller text */
-    font-weight: 700;   /* Bold */
-    color: #555;        /* Optional: Darken the text slightly */
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #555;
     font-style: italic;
-    display: block;     /* Ensures it appears on a new line */
-    margin-top: 5px;    /* Adds a bit of spacing */
+    display: block;
+    margin-top: 5px;
 }
 
 .article {
     display: flex;
-    align-items: stretch; /* Make children take full height */
+    justify-content: center;
     gap: 30px;
-    width: 100%;
-    border-radius: 10px;
-    padding: 30px;
+    padding: 5% 0;
+    width: 80%;
 }
 
 .article img {
-    flex-shrink: 0;
-    width: 40%;
-    max-width: 500px;
+    width: 30%;
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 10px;
-}
-
-.article {
-    display: flex;
-    align-items: stretch; /* Ensures children take full height */
-    gap: 30px;
-    width: 100%;
-    border-radius: 10px;
-    padding: 30px;
+    flex: 1;
 }
 
 .article-content {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Aligns text to the top */
-    align-items: flex-start;
-    flex-grow: 1; /* Expands to fill space */
-    min-height: 100%; /* Ensures it takes full height */
-    position: relative; /* Allows absolute positioning */
+    justify-content: center;
+    flex: 2;
 }
 
 .article-content h1 {
     margin: 0;
     font-size: 4rem;
-    font-weight: 700; /* Ensures headings use bold */
+    font-weight: 700;
     text-align: left;
 }
 
@@ -84,78 +69,94 @@
     margin-top: 10px;
     font-size: 1.2rem;
     line-height: 1.6;
-    font-weight: 400; /* Corrected font-weight to valid regular weight */
+    font-weight: 400;
     text-align: justify;
     font-family: 'InstrumentSans', sans-serif;
-    font-weight: 400; /* Ensures regular weight is applied */
 }
 
 .article p, #article-body {
     margin: 10px 0;
     font-weight: 400; 
     font-family: 'InstrumentSans', sans-serif;
-    text-align: justify; /* Justifies text */
+    text-align: justify;
+}
+
+.btn {
+    background-color: #912933;
+    color: white;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    transition: background 0.5s ease-in-out;
+    margin: 2% 0;
+    width: 30%;
+}
+
+.btn:hover {
+    background-color: #751e28;
 }
 
 @font-face {
     font-family: 'InstrumentSans-Bold';
-    src: url('../font/InstrumentSans-Bold.ttf') format('truetype'); /* Ensure it's actually bold */
-    font-weight: 700; /* Correct bold weight */
+    src: url('../font/InstrumentSans-Bold.ttf') format('truetype');
+    font-weight: 700;
     font-style: normal;
 }
 
-.content {
-    width: 100vw;
-    min-height: 0;
-    padding: 0px;
-    border-bottom: 0px solid;
-    border-top: 0px solid;
-}
-
-
-/* 🔹 Mobile View: Stack Image Above Text */
 @media (max-width: 768px) {
     .article {
         flex-direction: column;
         align-items: center;
-        text-align: center;
-        padding: 20px;
+        width: 90%;
+        gap: 20px;
     }
 
     .article img {
-        width: 100%;
-        max-width: 100%;
+        width: 60%;
     }
 
     .article-content {
-        width: 100%;
+        align-items: center;
+        width: 80%;
     }
 
     .article-content h1 {
-        font-size: 1.8rem;
+        font-size: 3rem;
+        text-align: center;
     }
 
     .article-content p {
         font-size: 1rem;
+        text-align: center;
+    }
+
+    .article-content .btn {
+        min-width: 50%;
+        display: block;
     }
 }
 
+@media (max-width: 480px) {
+    .articles-container {
+        padding: 0 10px;
+    }
 
-.btn-group {
-    display: flex; /* Puts buttons side by side */
-    gap: 1em; /* Adds spacing between buttons */
-    justify-content: center; /* Centers buttons */
-    margin-top: 1em; /* Adds spacing above */
-}
+    .article {
+        flex-direction: column;
+        width: 100%;
+        padding: 8% 0;
+        gap: 15px;
+    }
 
-.btn {
-    position: absolute;
-    bottom: 0; /* Sticks to the bottom */
-    left: 0; /* Aligns to the left */
-    background-color: #f8f8f8; 
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    padding: 10px 20px;
+    .article img {
+        width: 80%;
+    }
+
+    .article-content h1 {
+        font-size: 2.5rem;
+        
+    }
 }
