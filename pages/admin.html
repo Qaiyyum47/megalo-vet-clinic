@@ -15,15 +15,15 @@
     <main>
         <section id="landing-section" class="content red">
             <h1>Admin</h1>
-            <h3>Center</h3>
-        </section>
-
+            <h3>Manage and control all admin settings here.</h3>
+        </section>        
 
         <section id="articles-list" class="content white">
             <h2>Published Articles</h2>
-            <a href="create_article.php">
-                <button type="button" class="create-article-btn">Create New Article</button>
-            </a>
+            <a href="create_article.php" class="create-article-btn no-effect">Create New Article</a>
+            <!--<a href="create_article.php">
+                <button type="button" class="create-article-btn no-effect">Create New Article</button>
+            </a>-->
             <table>
                 <thead>
                     <tr>
@@ -46,7 +46,6 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/admin.js"></script>
     <script>
-        // Show success pop-up if article was created
         window.onload = function () {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has("success")) {

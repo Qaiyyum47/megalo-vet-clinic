@@ -73,11 +73,16 @@ h3 {
     color: #eda325;
 }
 
+th {
+    font-family: 'InstrumentSans', sans-serif;
+    font-size: 1.5rem;
+}
+
 p, a {
     font-size: 1.25rem;
 }
 
-input, textarea, select {
+input, textarea, select, td {
     font-family: 'InstrumentSans', sans-serif;
 }
 
