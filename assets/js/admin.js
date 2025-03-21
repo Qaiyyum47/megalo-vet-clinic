@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fetchArticles() {
-    fetch("/api/fetch_article.php") // Adjusted path
+    fetch("../api/fetch_article.php") // Adjusted path
         .then(response => {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
