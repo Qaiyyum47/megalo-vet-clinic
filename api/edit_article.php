@@ -3,13 +3,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Database connection
-$servername = "localhost:8889"; 
-$username = "test";  
-$password = "test1234";  
-$database = "WebDev";  
-
-$conn = new mysqli($servername, $username, $password, $database);
+// Include database configuration
+require_once 'config.php'; 
 
 // Check connection
 if ($conn->connect_error) {

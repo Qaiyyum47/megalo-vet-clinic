@@ -1,14 +1,10 @@
 <?php
-header('Content-Type: application/json'); // Ensure JSON response
+// Enable error reporting
 error_reporting(E_ALL);
-ini_set('display_errors', 1); // Show PHP errors for debugging
+ini_set('display_errors', 1);
 
-$servername = "localhost:8889"; 
-$username = "test";  
-$password = "test1234";  
-$database = "WebDev";  
-
-$conn = new mysqli($servername, $username, $password, $database);
+// Include database configuration
+require_once 'config.php'; 
 
 if ($conn->connect_error) {
     die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
